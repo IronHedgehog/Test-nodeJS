@@ -3,6 +3,9 @@ const Joi = require("joi");
 
 const userSchema = Schema(
   {
+    name: {
+      type: String,
+    },
     email: {
       type: String,
       required: [true, "Email is required"],
