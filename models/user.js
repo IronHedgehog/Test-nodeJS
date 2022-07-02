@@ -19,7 +19,7 @@ const userSchema = Schema(
       type: Number,
     },
     address: {
-      type: Number,
+      type: String,
     },
     token: {
       type: String,
