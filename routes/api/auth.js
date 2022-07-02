@@ -28,6 +28,7 @@ router.get("/current", auth, ctrlWrapper(ctrl.current));
 
 router.patch(
   "/:id/subscription",
+  auth,
   isValidId,
   validation(schemas.joiPatchSchema),
   ctrlWrapper(ctrl.updateSubscription)
