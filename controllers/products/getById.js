@@ -1,11 +1,11 @@
-const { Contact } = require("../../models/contact");
+const { Product } = require("../../models/product");
 
 const { createError } = require("../../helpers");
 
 const getById = async (req, res) => {
-  const { contactId } = req.params;
-  const neededContact = await Contact.findById(
-    contactId,
+  const { productId } = req.params;
+  const neededContact = await Product.findById(
+    productId,
     "-createdAt -updatedAt"
   );
   if (!neededContact) {

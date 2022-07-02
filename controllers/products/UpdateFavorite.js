@@ -1,10 +1,10 @@
-const { Contact } = require("../../models/contact");
+const { Product } = require("../../models/product");
 
 const { createError } = require("../../helpers");
 
 const updateFavorite = async (req, res) => {
   const { id } = req.params;
-  const newFavorite = await Contact.findByIdAndUpdate(id, req.body, {
+  const newFavorite = await Product.findByIdAndUpdate(id, req.body, {
     new: true,
   });
   if (!newFavorite) {

@@ -1,10 +1,7 @@
 const { User } = require("../../models/user");
 const bcrypt = require("bcryptjs");
 const { createError } = require("../../helpers");
-
-// Взять из тела запроса данные(емейл и пароль)
-// ищем пользователя по емейлу в базе, если находим кидаем конфликт,
-// если не находим хешируем пароль и добавляем в базу нового пользователя
+const gravatar = require("gravatar");
 
 const signup = async (req, res) => {
   const { email, password } = req.body;
@@ -15,11 +12,17 @@ const signup = async (req, res) => {
   }
   const salt = await bcrypt.genSalt(10);
   const hashPassword = await bcrypt.hash(password, salt);
-  const newUser = await User.create({ ...req.body, password: hashPassword });
+  const avatarUrl = gravatar.url(email);
+  const newUser = await User.create({
+    ...req.body,
+    avatarUrl,
+    password: hashPassword,
+  });
   res.status(201).json({
     user: {
       email: newUser.email,
       subscription: newUser.subscription,
+      avatarUrl,
     },
   });
 };
