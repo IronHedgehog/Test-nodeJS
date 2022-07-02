@@ -15,7 +15,7 @@ const add = async (req, res) => {
     // image.write(newDir);
 
     const productsURL = path.join("products", filename);
-    console.log("productsURL", productsURL);
+
 
     const addedProduct = await Product.create({
       ...req.body,

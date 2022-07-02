@@ -5,7 +5,7 @@ const gravatar = require("gravatar");
 
 const signup = async (req, res) => {
   const { email, password } = req.body;
-  console.log("email,password", email, password);
+
   const user = await User.findOne({ email });
   if (user) {
     throw createError(409, "Email in use");

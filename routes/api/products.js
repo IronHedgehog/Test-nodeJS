@@ -12,11 +12,11 @@ const router = express.Router();
 
 router.get("/", ctrlWrapper(ctrl.getAll));
 
-router.get("/", auth, ctrlWrapper(ctrl.getAllWithOwner));
+router.get("/withOwner", auth, ctrlWrapper(ctrl.getAllWithOwner));
 
 router.get("/favorite", auth, ctrlWrapper(ctrl.onlyFavorite));
 
-router.get("/:productId", auth, isValidId, ctrlWrapper(ctrl.getById));
+router.get("/:productId", isValidId, ctrlWrapper(ctrl.getById));
 
 router.post(
   "/",
@@ -27,7 +27,9 @@ router.post(
 
 router.post(
   "/withOwner",
+
   auth,
+  upload.single("image"),
   validation(schemas.addProduct),
   ctrlWrapper(ctrl.addWithOwner)
 );
