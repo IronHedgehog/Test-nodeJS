@@ -19,7 +19,7 @@ const userSchema = Schema(
       type: Number,
     },
     address: {
-      type: String,
+      type: Number,
     },
     token: {
       type: String,
@@ -30,9 +30,11 @@ const userSchema = Schema(
 );
 
 const joiRegisterSchema = Joi.object({
+  name: Joi.string(),
   email: Joi.string().required(),
   password: Joi.string().required(),
   address: Joi.string(),
+  phone: Joi.number(),
 });
 
 const joiLoginSchema = Joi.object({
