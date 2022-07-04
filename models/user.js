@@ -37,6 +37,8 @@ const joiRegisterSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
   password: Joi.string().required(),
+  phone: Joi.number(),
+  address: Joi.string(),
 });
 
 const joiLoginSchema = Joi.object({
