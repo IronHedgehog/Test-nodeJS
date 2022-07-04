@@ -16,6 +16,14 @@ const userSchema = Schema(
       type: String,
       required: [true, "Password is required"],
     },
+    phone: {
+      type: Number,
+      required: [true, "Set phone for owner"],
+    },
+    address: {
+      type: String,
+      required: [true, "Set shop for product"],
+    },
 
     token: {
       type: String,
