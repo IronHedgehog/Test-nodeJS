@@ -33,10 +33,6 @@ const orderSchema = Schema(
       type: Array,
       required: [true, "no order"],
     },
-    owner: {
-      type: Schema.Types.ObjectId,
-      ref: "user",
-    },
   },
   { versionKey: false, timestamps: true }
 );
