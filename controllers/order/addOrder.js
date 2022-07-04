@@ -1,7 +1,7 @@
 const { Order } = require("../../models/shop");
 const { createError } = require("../../helpers");
 
-const add = async (req, res) => {
+const addOrder = async (req, res) => {
   try {
     const { _id: owner } = req.user;
     const addOrder = await Order.create({
@@ -14,4 +14,4 @@ const add = async (req, res) => {
   }
 };
 
-module.exports = add;
+module.exports = addOrder;

@@ -1,6 +1,6 @@
 const { Order } = require("../../models/shop");
 
-const getAll = async (req, res) => {
+const getAllOrders = async (req, res) => {
   const { _id: owner } = req.user;
   // const { page = 1, limit = 1 } = req.query;
   // const skip = (page - 1) * limit;
@@ -11,4 +11,4 @@ const getAll = async (req, res) => {
   res.json(orders);
 };
 
-module.exports = getAll;
+module.exports = getAllOrders;

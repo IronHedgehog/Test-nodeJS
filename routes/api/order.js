@@ -17,6 +17,6 @@ router.post(
   ctrlWrapper(ctrl.addOrder)
 );
 
-router.get("/getOrder", auth, ctrlWrapper(ctrl.getAllOrders));
+router.get("/getHistoryOrders", auth, ctrlWrapper(ctrl.getAllOrders));
 
 module.exports = router;
