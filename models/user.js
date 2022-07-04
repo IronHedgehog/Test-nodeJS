@@ -16,12 +16,7 @@ const userSchema = Schema(
       type: String,
       required: [true, "Password is required"],
     },
-    phone: {
-      type: Number,
-    },
-    address: {
-      type: String,
-    },
+
     token: {
       type: String,
       default: "",
@@ -34,8 +29,6 @@ const joiRegisterSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
   password: Joi.string().required(),
-  address: Joi.string(),
-  phone: Joi.number(),
 });
 
 const joiLoginSchema = Joi.object({
@@ -43,15 +36,9 @@ const joiLoginSchema = Joi.object({
   password: Joi.string().required(),
 });
 
-const joiPatchSchema = Joi.object({
-  phone: Joi.string().required(),
-  address: Joi.string().required(),
-});
-
 const schemas = {
   joiRegisterSchema,
   joiLoginSchema,
-  joiPatchSchema,
 };
 
 const User = model("user", userSchema);
