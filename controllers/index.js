@@ -1,4 +1,5 @@
-const contacts = require("./products");
+const products = require("./products");
 const auth = require("./auth");
+const order = require("./order");
 
-module.exports = { contacts, auth };
+module.exports = { products, auth, order };

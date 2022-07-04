@@ -2,7 +2,7 @@ const express = require("express");
 
 const { ctrlWrapper } = require("../../helpers");
 
-const { contacts: ctrl } = require("../../controllers");
+const { products: ctrl } = require("../../controllers");
 
 const { validation, isValidId, auth, upload } = require("../../middlewares");
 
@@ -27,9 +27,7 @@ router.post(
 
 router.post(
   "/withOwner",
-
   auth,
-  upload.single("image"),
   validation(schemas.addProduct),
   ctrlWrapper(ctrl.addWithOwner)
 );
